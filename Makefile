@@ -1,3 +1,3 @@
 
-all:
-	g++ main.cpp -o my_app -lglfw -lGL -lm
+all: main.cpp
+	g++ main.cpp -o my_app -lglfw -lGL -lm -lGLEW
