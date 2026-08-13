@@ -1,6 +1,6 @@
 
-all: main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o
-	g++ main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o -o my_app -lglfw -lGL -lm -lGLEW
+all: main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o shader.o
+	g++ main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o shader.o -o my_app -lglfw -lGL -lm -lGLEW
 
 render.o: src/render.cpp
 	g++ -c src/render.cpp -o render.o
@@ -13,6 +13,9 @@ vertexBuffer.o: src/vertexBuffer.cpp
 
 vertexArray.o: src/vertexArray.cpp
 	g++ -c src/vertexArray.cpp -o vertexArray.o
+
+shader.o: src/shader.cpp
+	g++ -c src/shader.cpp -o shader.o
 
 
 clean:
