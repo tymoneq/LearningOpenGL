@@ -2,6 +2,7 @@
 #include "render.hpp"
 #include "vertexBufferLayout.hpp"
 
+
 VertexArray::VertexArray() { GLCall(glGenVertexArrays(1, &m_RendererID)); }
 
 VertexArray::~VertexArray() { GLCall(glDeleteVertexArrays(1, &m_RendererID)); }
