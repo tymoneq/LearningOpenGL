@@ -1,6 +1,6 @@
 
-all: main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o shader.o
-	g++ main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o shader.o -o my_app -lglfw -lGL -lm -lGLEW
+all: main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o shader.o stb_imagine.o textures.o
+	g++ main.cpp render.o indexBuffer.o vertexBuffer.o vertexArray.o shader.o stb_imagine.o textures.o -o my_app -lglfw -lGL -lm -lGLEW
 
 render.o: src/render.cpp
 	g++ -c src/render.cpp -o render.o
@@ -17,6 +17,11 @@ vertexArray.o: src/vertexArray.cpp
 shader.o: src/shader.cpp
 	g++ -c src/shader.cpp -o shader.o
 
+textures.o: src/textures.cpp
+	g++ -c src/textures.cpp -o textures.o
+
+stb_imagine.o: src/vendor/stb_image/stb_image.cpp
+	g++ -c src/vendor/stb_image/stb_image.cpp -o stb_imagine.o
 
 clean:
 	rm -f *.o my_app
